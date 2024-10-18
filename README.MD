@@ -3,13 +3,14 @@
 ## About
 Página portafolio Desarrollador Web Nicolás Sicard
 
-[Logo de mi proyecto](public/imagenes-pantallazos/app1.png)
-(public/imagenes-pantallazos/app1.png)
-(imagenes-pantallazos/app3.png)
-(imagenes-pantallazos/app4.png)
-(imagenes-pantallazos/app5.png)
-(imagenes-pantallazos/app6.png)
-(imagenes-pantallazos/app7.png)
+(https://github.com/Nicosi89/portafolio-nico-win95/blob/main/public/imagenes-pantallazos/app1.png)
+(https://github.com/Nicosi89/portafolio-nico-win95/blob/main/public/imagenes-pantallazos/app2.png)
+(https://github.com/Nicosi89/portafolio-nico-win95/blob/main/public/imagenes-pantallazos/app3.png)
+(https://github.com/Nicosi89/portafolio-nico-win95/blob/main/public/imagenes-pantallazos/app4.png)
+(https://github.com/Nicosi89/portafolio-nico-win95/blob/main/public/imagenes-pantallazos/app5.png)
+(https://github.com/Nicosi89/portafolio-nico-win95/blob/main/public/imagenes-pantallazos/app6.png)
+(https://github.com/Nicosi89/portafolio-nico-win95/blob/main/public/imagenes-pantallazos/app7.png)
+
 
 ## Tecnologías
 Frontend: 
