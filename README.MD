@@ -3,7 +3,7 @@
 ## About
 Página portafolio Desarrollador Web Nicolás Sicard
 
-(imagenes-pantallazos/app1.png)
+![Logo de mi proyecto](imagenes-pantallazos/app1.png)
 (imagenes-pantallazos/app2.png)
 (imagenes-pantallazos/app3.png)
 (imagenes-pantallazos/app4.png)
