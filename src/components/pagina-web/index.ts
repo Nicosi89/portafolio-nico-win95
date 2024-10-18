@@ -1,0 +1,1 @@
+export { PaginaWebLayout } from "./layout";

@@ -1,164 +1,142 @@
-import {
-  AuthPage,
-  Authenticated,
-  ErrorComponent,
-  GitHubBanner,
-  Refine,
-} from "@refinedev/core";
+import { ErrorComponent, Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
-import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
-
-import routerBindings, {
-  CatchAllNavigate,
-  DocumentTitleHandler,
-  NavigateToResource,
+import { dataProvider } from "@refinedev/supabase";
+import routerProvider, {
   UnsavedChangesNotifier,
+  DocumentTitleHandler,
 } from "@refinedev/react-router-v6";
-import { dataProvider, liveProvider } from "@refinedev/supabase";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import "./App.css";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+
+} from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+/* import { VideoClubLayout } from "@/components/layout";
+ import { supabaseClient } from "@/supabase-client";
+/* import {
+  VideoClubMemberPageEdit,
+  VideoClubMemberPageCreate,
+  VideoClubMemberPageList,
+  VideoClubMemberPageShow,
+  PelisAppPageBrowsePelis,
+  VideoClubPageCreateTitle,
+  VideoClubPageShowTitle,
+  VideoClubPageTapeRent,
+  VideoClubPageTapeReturn,
+  VideoClubPageTapeSelectMember,
+  VideoClubReportPage,
+  VideoClubSettingsPage,
+} from "@/routes/video-club"; */
+/* import {
+  RVCWebsiteCatalogPage,
+  RVCWebsitePageHome,
+  RVCWebsitePageTitleDetails,
+} from "@/routes/rvc-website"; */
+/* import { authProvider } from "@/providers/auth-provider";
+ */
+
+import dayjs from "dayjs";
+import durationPlugin from "dayjs/plugin/duration";
+import { ThemeProvider } from "./providers/theme-provider";
+import { notificationProvider } from "./providers/theme-provider/notification-provider";
+import { CommonLayout } from "./components/layout/common";
+import { HomePage } from "./routes/home-page";
+import { supabaseClient } from "./supabase-client";
+import { LayoutPelisApp } from "./components/layout/90s-app";
+import { PelisAppPageBrowsePelis } from "./routes/pelis-app/peliculas/list";
 import authProvider from "./authProvider";
-import { Layout } from "./components/layout";
-import {
-  BlogPostCreate,
-  BlogPostEdit,
-  BlogPostList,
-  BlogPostShow,
-} from "./pages/blog-posts";
-import {
-  CategoryCreate,
-  CategoryEdit,
-  CategoryList,
-  CategoryShow,
-} from "./pages/categories";
-import { supabaseClient } from "./utility";
+import { PelisAppPageVoto } from "./routes/pelis-app/votos/create";
+import { LoginPage } from "./routes/login-page";
+import { SignUpPage } from "./routes/signup-page";
+import { PelisAppPageRankingPelis } from "./routes/pelis-app/peliculas/ranking";
+import { AboutWindow } from "./components/about-window";
+import { PaginaWebPageHome } from "./routes/pagina-web";
+import { AboutWindowHome } from "./components/contact-window";
+import { About } from "./components/pagina-web/About";
+dayjs.extend(durationPlugin);
 
-function App() {
+const App = () => {
   return (
-    <BrowserRouter>
-      <GitHubBanner />
-      <RefineKbarProvider>
-        <DevtoolsProvider>
-          <Refine
-            dataProvider={dataProvider(supabaseClient)}
-            liveProvider={liveProvider(supabaseClient)}
-            authProvider={authProvider}
-            routerProvider={routerBindings}
-            resources={[
-              {
-                name: "blog_posts",
-                list: "/blog-posts",
-                create: "/blog-posts/create",
-                edit: "/blog-posts/edit/:id",
-                show: "/blog-posts/show/:id",
-                meta: {
-                  canDelete: true,
-                },
-              },
-              {
-                name: "categories",
-                list: "/categories",
-                create: "/categories/create",
-                edit: "/categories/edit/:id",
-                show: "/categories/show/:id",
-                meta: {
-                  canDelete: true,
-                },
-              },
-            ]}
-            options={{
-              syncWithLocation: true,
-              warnWhenUnsavedChanges: true,
-              useNewQueryKeys: true,
-              projectId: "NPJ5gW-DjYcqd-qg2UsR",
-            }}
-          >
-            <Routes>
-              <Route
-                element={
-                  <Authenticated
-                    key="authenticated-inner"
-                    fallback={<CatchAllNavigate to="/login" />}
-                  >
-                    <Layout>
-                      <Outlet />
-                    </Layout>
-                  </Authenticated>
-                }
-              >
-                <Route
-                  index
-                  element={<NavigateToResource resource="blog_posts" />}
-                />
-                <Route path="/blog-posts">
-                  <Route index element={<BlogPostList />} />
-                  <Route path="create" element={<BlogPostCreate />} />
-                  <Route path="edit/:id" element={<BlogPostEdit />} />
-                  <Route path="show/:id" element={<BlogPostShow />} />
-                </Route>
-                <Route path="/categories">
-                  <Route index element={<CategoryList />} />
-                  <Route path="create" element={<CategoryCreate />} />
-                  <Route path="edit/:id" element={<CategoryEdit />} />
-                  <Route path="show/:id" element={<CategoryShow />} />
-                </Route>
-                <Route path="*" element={<ErrorComponent />} />
-              </Route>
-              <Route
-                element={
-                  <Authenticated
-                    key="authenticated-outer"
-                    fallback={<Outlet />}
-                  >
-                    <NavigateToResource />
-                  </Authenticated>
-                }
-              >
-                <Route
-                  path="/login"
-                  element={
-                    <AuthPage
-                      type="login"
-                      renderContent={(content) => (
-                        <div>
-                          <p
-                            style={{
-                              padding: 10,
-                              color: "#004085",
-                              backgroundColor: "#cce5ff",
-                              borderColor: "#b8daff",
-                              textAlign: "center",
-                            }}
-                          >
-                            email: info@refine.dev
-                            <br /> password: refine-supabase
-                          </p>
-                          {content}
-                        </div>
-                      )}
-                    />
-                  }
-                />
-                <Route
-                  path="/register"
-                  element={<AuthPage type="register" />}
-                />
-                <Route
-                  path="/forgot-password"
-                  element={<AuthPage type="forgotPassword" />}
-                />
-              </Route>
-            </Routes>
+    <DevtoolsProvider>
+      <BrowserRouter>
+        <ThemeProvider>
+          
+            <Refine
+              dataProvider={dataProvider(supabaseClient)}
+              /* liveProvider={liveProvider(supabaseClient)} */
+              authProvider={authProvider}
+              routerProvider={routerProvider}
+              notificationProvider={notificationProvider}
+              resources={[
+                {
+                  name: "peliculas",
+                  list: "/app/peliculas",
+                  show: "/app/peliculas/:id",
 
-            <RefineKbar />
-            <UnsavedChangesNotifier />
-            <DocumentTitleHandler />
-          </Refine>
-          <DevtoolsPanel />
-        </DevtoolsProvider>
-      </RefineKbarProvider>
-    </BrowserRouter>
+
+                }
+              ]}
+              options={{
+                liveMode: "auto",
+                syncWithLocation: true,
+                warnWhenUnsavedChanges: true,
+              }}
+            >
+              <Routes>
+                <Route
+                  element={
+                    <CommonLayout>
+                      <Outlet />
+                      <AboutWindowHome />
+                      <AboutWindow />
+                    </CommonLayout>
+
+                  } >
+                  <Route index element={<HomePage />} />
+                  <Route
+                    path="/app"
+                    element={
+                      <LayoutPelisApp >
+                        <Outlet />
+                        <AboutWindow />
+                      </LayoutPelisApp>
+                    }
+                  >
+                    <Route
+                      path="peliculas"
+                      element={
+                        <>
+                          <PelisAppPageBrowsePelis />
+                          <Outlet />
+                        </>
+                      }
+                    >
+                      <Route index />
+                      <Route path=":id" element={<PelisAppPageVoto />} />
+                    </Route>
+                    <Route path="ranking" element={<PelisAppPageRankingPelis />} />
+                  </Route>
+                  {/* //si está logueado y no hay una ruta se envía a la página de error */}
+                  <Route path="pagina-web" element={<Outlet />} >
+                      <Route index element={<PaginaWebPageHome />} />
+                  </Route>
+                  <Route path="*" element={<ErrorComponent />} />
+                </Route>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/sign-up" element={<SignUpPage />} />
+              </Routes>
+              <UnsavedChangesNotifier />
+              <DocumentTitleHandler />
+              <Toaster />
+            </Refine>
+          
+        </ThemeProvider>
+{/*         <DevtoolsPanel />
+ */}      </BrowserRouter>
+    </DevtoolsProvider >
   );
-}
+};
 
 export default App;

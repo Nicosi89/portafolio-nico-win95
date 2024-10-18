@@ -1,8 +1,8 @@
-import { AuthBindings } from "@refinedev/core";
+import { AuthProvider } from "@refinedev/core";
+import { supabaseClient } from "./supabase-client";
 
-import { supabaseClient } from "./utility";
 
-const authProvider: AuthBindings = {
+const authProvider: AuthProvider = {
   login: async ({ email, password, providerName }) => {
     // sign in with oauth
     try {
@@ -55,8 +55,8 @@ const authProvider: AuthBindings = {
     return {
       success: false,
       error: {
-        message: "Login failed",
-        name: "Invalid email or password",
+        message: "No pudimos encontrar tu cuenta",
+        name: "Email o contraseña inválida",
       },
     };
   },
@@ -91,7 +91,7 @@ const authProvider: AuthBindings = {
       success: false,
       error: {
         message: "Register failed",
-        name: "Invalid email or password",
+        name: "Email o contraseña inválida",
       },
     };
   },
@@ -127,7 +127,7 @@ const authProvider: AuthBindings = {
       success: false,
       error: {
         message: "Forgot password failed",
-        name: "Invalid email",
+        name: "Correo inválido",
       },
     };
   },
@@ -160,7 +160,7 @@ const authProvider: AuthBindings = {
       success: false,
       error: {
         message: "Update password failed",
-        name: "Invalid password",
+        name: "Contraseña inválida",
       },
     };
   },
