@@ -16,7 +16,7 @@ export const Ventajas = () => {
           <TarjetaVentajas key={ventaja.label} {...ventaja} />
         ))}
       </FlexContainer>
-      <Boton url="" label="Empezar un proyecto" />
+      <Boton url="/pagina-web#contacto" label="Empezar un proyecto" />
     </Section>
   );    
 };

@@ -29,7 +29,7 @@ export function TarjetasTrabajos({
                 {titulo}
             </Titulo>
             <Carousel items={tarjetasPorTipo} />
-            <Boton url="" label="Empezar un proyecto" />
+            <Boton url="/pagina-web#contacto" label="Empezar un proyecto" />
         </GeneralContainer>
     );
 }

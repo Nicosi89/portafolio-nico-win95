@@ -14,7 +14,7 @@ export const About = () => {
         <InfoText>{textoGuiaPrincipalP1}</InfoText>
         <ButtonContainer>
           <Boton
-            url=""
+            url="/pagina-web#contacto"
             label="Empezar un proyecto"
           />
         </ButtonContainer>
