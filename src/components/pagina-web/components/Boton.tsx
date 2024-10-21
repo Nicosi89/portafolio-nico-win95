@@ -7,11 +7,10 @@ export function Boton({
     url,
 }: {
     label: string;
-
-    url: string;
+    url: string;    
 }) {
     return (
-        <StyledLink
+        <StyledLink reloadDocument
             to={url}
         >
             {label}
@@ -39,10 +38,5 @@ const StyledLink = styled(Link)`
 
     ;
 
-const IconoImage = styled.img`
-  margin-left: 8px;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-`;
+
 

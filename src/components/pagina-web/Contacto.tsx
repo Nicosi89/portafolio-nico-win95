@@ -37,6 +37,7 @@ const Section = styled.section`
   
   flex-wrap: wrap;
   padding-top: 50px;
+  padding-bottom: 60px;
   gap: 35px;
   max-width: var(--container-width); /* Assuming you have --container-width set */
 `;

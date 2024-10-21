@@ -62,78 +62,78 @@ const App = () => {
     <DevtoolsProvider>
       <BrowserRouter>
         <ThemeProvider>
-          
-            <Refine
-              dataProvider={dataProvider(supabaseClient)}
-              /* liveProvider={liveProvider(supabaseClient)} */
-              authProvider={authProvider}
-              routerProvider={routerProvider}
-              notificationProvider={notificationProvider}
-              resources={[
-                {
-                  name: "peliculas",
-                  list: "/app/peliculas",
-                  show: "/app/peliculas/:id",
+
+          <Refine
+            dataProvider={dataProvider(supabaseClient)}
+            /* liveProvider={liveProvider(supabaseClient)} */
+            authProvider={authProvider}
+            routerProvider={routerProvider}
+            notificationProvider={notificationProvider}
+            resources={[
+              {
+                name: "peliculas",
+                list: "/app/peliculas",
+                show: "/app/peliculas/:id",
 
 
-                }
-              ]}
-              options={{
-                liveMode: "auto",
-                syncWithLocation: true,
-                warnWhenUnsavedChanges: true,
-              }}
-            >
-              <Routes>
+              }
+            ]}
+            options={{
+              liveMode: "auto",
+              syncWithLocation: true,
+              warnWhenUnsavedChanges: true,
+            }}
+          >
+            <Routes>
+              <Route
+                element={
+                  <CommonLayout>
+                    <Outlet />
+                    <AboutWindowHome />
+                    <AboutWindow />
+                  </CommonLayout>
+
+                } >
+                <Route index element={<HomePage />} />
                 <Route
+                  path="/app"
                   element={
-                    <CommonLayout>
+                    <LayoutPelisApp >
                       <Outlet />
-                      <AboutWindowHome />
                       <AboutWindow />
-                    </CommonLayout>
-
-                  } >
-                  <Route index element={<HomePage />} />
+                    </LayoutPelisApp>
+                  }
+                >
                   <Route
-                    path="/app"
+                    path="peliculas"
                     element={
-                      <LayoutPelisApp >
+                      <>
+                        <PelisAppPageBrowsePelis />
                         <Outlet />
-                        <AboutWindow />
-                      </LayoutPelisApp>
+                      </>
                     }
                   >
-                    <Route
-                      path="peliculas"
-                      element={
-                        <>
-                          <PelisAppPageBrowsePelis />
-                          <Outlet />
-                        </>
-                      }
-                    >
-                      <Route index />
-                      <Route path=":id" element={<PelisAppPageVoto />} />
-                    </Route>
-                    <Route path="ranking" element={<PelisAppPageRankingPelis />} />
+                    <Route index />
+                    <Route path=":id" element={<PelisAppPageVoto />} />
                   </Route>
-                  {/* //si está logueado y no hay una ruta se envía a la página de error */}
-                  <Route path="pagina-web" element={<Outlet />} >
-                      <Route index element={<PaginaWebPageHome />} />
-                  </Route>
-                  <Route path="*" element={<ErrorComponent />} />
+                  <Route path="ranking" element={<PelisAppPageRankingPelis />} />
                 </Route>
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/sign-up" element={<SignUpPage />} />
-              </Routes>
-              <UnsavedChangesNotifier />
-              <DocumentTitleHandler />
-              <Toaster />
-            </Refine>
-          
+                {/* //si está logueado y no hay una ruta se envía a la página de error */}
+                <Route path="pagina-web" element={<Outlet />} >
+                  <Route index element={<PaginaWebPageHome />} />
+                </Route>
+                <Route path="*" element={<ErrorComponent />} />
+              </Route>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/sign-up" element={<SignUpPage />} />
+            </Routes>
+            <UnsavedChangesNotifier />
+            <DocumentTitleHandler />
+            <Toaster />
+          </Refine>
+
         </ThemeProvider>
-{/*         <DevtoolsPanel />
+        {/*         <DevtoolsPanel />
  */}      </BrowserRouter>
     </DevtoolsProvider >
   );

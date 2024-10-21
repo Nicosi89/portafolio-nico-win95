@@ -50,7 +50,7 @@ export const AboutWindowHome = () => {
             
             <AboutRightColumn>
               <AboutLabelContainer>
-                Hola, te doy la bienvenida👋🏻! Esta es la página web del portafolio dev 🧑🏻‍💻 de Nicolás Sicard.
+                Hola!!!, te doy la bienvenida👋🏻! Esta es la página web del portafolio dev 🧑🏻‍💻 de Nicolás Sicard.
                 Si el diseño te transporta a otros tiempos, esa es la idea!. Solo quería hacerla un poco diferente
                 y recurrí a la nostalgia noventera como inspiración.💫
                 <br></br> <SpanContainer >Encontrarás además de la página de portafolio  (la real) una sencilla y divertida app para 

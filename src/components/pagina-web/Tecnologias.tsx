@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Boton } from './components/Boton';
 import { tecnologias, ventajas } from '../../utility/constants';
 
 
@@ -30,7 +29,7 @@ const Section = styled.section`
   padding-top: 50px;
   gap: 35px;
   max-width: var(--container-width); /* Assuming you have --container-width set */
-  padding-bottom: 15em;
+  padding-bottom: 10em;
 `;
 
 const Title = styled.h3`

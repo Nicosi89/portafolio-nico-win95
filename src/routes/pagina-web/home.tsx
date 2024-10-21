@@ -35,6 +35,7 @@ export const PaginaWebPageHome = ({ withBrowser = true }: Props) => {
       address="http://www.nicosicarddev.com/index.html"
     >
       <PaginaWebLayout withBrowser={withBrowser}>
+        Hola
         <Hero />
         <About />
         <Ventajas />
