@@ -14,6 +14,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
 import { useOutsideClick } from "../../../../hooks/use-outside-click";
+import { Link } from "react-router-dom";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -27,6 +28,7 @@ type Card = {
   descripcion: string;
   tecnologias: string[];
   content: React.ReactNode;
+  id: string;
 };
 
 export const CarouselContext = createContext<{
@@ -206,7 +208,7 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
+  const { onCardClose } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -229,6 +231,9 @@ export const Card = ({
 
   const handleOpen = () => {
     setOpen(true);
+    /* console.log('card id en handleOpen', card.id)
+
+    return <Link to={`/pagina-web/${card.id}`} reloadDocument > Nicolas</Link> */
   };
 
   const handleClose = () => {

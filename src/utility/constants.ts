@@ -27,7 +27,7 @@ export const linksHome = [
 ];
   export const tituloHeroPrincipal = 'El desarrollo web no tiene por qué ser como en los 90s'
   export const textoTituloProblema = 'Tienes una idea de un proyecto web que no has podido concretar '
-  export const textoGuiaPrincipalP1 = `Hola!!, 👋🏻 soy Nicolás Sicard, me dedico al desarrollado web y el emprendimiento digital. 🧑🏻‍💻 Desde 2020 
+  export const textoGuiaPrincipalP1 = `Hola!, 👋🏻 soy Nicolás Sicard, me dedico al desarrollado web y el emprendimiento digital. 🧑🏻‍💻 Desde 2020 
   trabajo en programación apr endiendo de forma autodidacta. En estos últimos años he desarrollado y acompañado varios 
   proyectos digitales propios y de clientes, por lo que todo este conocimiento adquirido lo pongo ahora a su servicio. Construyamos juntos
   una experiencia digital única que no solo logre impresionar sino impactar positivamente.✌🏻  

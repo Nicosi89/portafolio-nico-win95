@@ -21,7 +21,7 @@ export const TarjetaVentajas = ({
 const CardContainer = styled.div`
   flex: 1;
   width: 100%;
-  max-width: 350px;
+  max-width: 300px;
   border-radius: 10px;
   box-shadow: var(--shadow-ml); /* Assuming this is defined in your theme */
   padding: 24px 40px; /* 16rem x 10rem */

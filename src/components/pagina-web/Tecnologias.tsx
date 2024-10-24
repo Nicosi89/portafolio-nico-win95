@@ -51,12 +51,13 @@ const IconosContainer = styled.div`
   }
 `;
 const ContenedorTrabajos = styled.div`
-  width: 100%
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding-bottom: 15px;
   flex-wrap: wrap;
+  justify-content: center;
 
   @media (min-width: 640px) {
     flex-direction: row;

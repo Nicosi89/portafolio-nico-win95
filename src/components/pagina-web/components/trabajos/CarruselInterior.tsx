@@ -1,16 +1,12 @@
 import React, {
     useEffect,
-    useRef,
-    useState,
-    createContext,
-    useContext,
+
 } from "react";
 import {
     IconArrowNarrowLeft,
     IconArrowNarrowRight,
-    IconX,
 } from "@tabler/icons-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 
@@ -25,7 +21,6 @@ export const CarouselInterior = ({ imagenesUrl, videoUrl, initialScroll = 0 }: C
     const carouselRef = React.useRef<HTMLDivElement>(null);
     const [canScrollLeft, setCanScrollLeft] = React.useState(false);
     const [canScrollRight, setCanScrollRight] = React.useState(true);
-    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         if (carouselRef.current) {
@@ -42,6 +37,7 @@ export const CarouselInterior = ({ imagenesUrl, videoUrl, initialScroll = 0 }: C
         }
     };
 
+    //dando click en la flecha para que haga scroll 
     const scrollLeft = () => {
         if (carouselRef.current) {
             carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
@@ -55,7 +51,7 @@ export const CarouselInterior = ({ imagenesUrl, videoUrl, initialScroll = 0 }: C
     };
 
     const isMobile = () => {
-        return window && window.innerWidth < 768;
+        return window && window.innerWidth < 478;
     };
 
     return (
@@ -65,8 +61,29 @@ export const CarouselInterior = ({ imagenesUrl, videoUrl, initialScroll = 0 }: C
 
                 <CarouselItems>
                     {imagenesUrl &&
-                        imagenesUrl.map((imagen, index) => (
-                            <motion.img
+                        imagenesUrl.map((imagen, index) => {
+                            if (isMobile()) {
+                                return <motion.img
+                                    src={imagen}
+                                    height={200}
+                                    width={400}
+                                    initial={{
+                                        opacity: 0,
+                                        y: 20,
+                                    }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 0.5,
+                                            delay: 0.2 * index,
+                                            ease: "easeOut",
+                                            once: true,
+                                        },
+                                    }}
+                                    key={"imagen" + index}
+                                />
+                            } else return <motion.img
                                 src={imagen}
                                 height={400}
                                 width={800}
@@ -86,7 +103,10 @@ export const CarouselInterior = ({ imagenesUrl, videoUrl, initialScroll = 0 }: C
                                 }}
                                 key={"imagen" + index}
                             />
-                        ))}
+                        }
+                        )
+
+                    }
 
                     {videoUrl && (
                         <motion.video
@@ -130,15 +150,17 @@ export const CarouselInterior = ({ imagenesUrl, videoUrl, initialScroll = 0 }: C
 const CarouselWrapper = styled.div`
   position: relative;
   width: 100%;
+  height: 500px;
 `;
 
 const CarouselContainer = styled.div`
   display: flex;
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: scroll; 
+  z-index: 100;
   overscroll-behavior-x: auto;
   padding: 2.5rem 0; /* py-10 */
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; 
   
 
   /* Hide scrollbar */

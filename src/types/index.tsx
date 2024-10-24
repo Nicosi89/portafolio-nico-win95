@@ -17,6 +17,7 @@ export type Pelicula = {
   }
   
   export interface TarjetaTrabajo {
+    id: string;
     tipo: string;
     category: string;
     title: string;
@@ -24,4 +25,5 @@ export type Pelicula = {
     descripcion: string;
     content: JSX.Element;
     tecnologias: string[];
+    imagenes: string[];
 }

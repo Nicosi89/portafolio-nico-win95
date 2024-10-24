@@ -51,29 +51,33 @@ export const Navegador = ({
             />
             <AppBar>
                 <AppBarContainer>
-                    <Separator />
-                    <ImageBrowserIcons
-                        src={getImagesUrl("/browser-icons.png")}
-                        alt="browser icons"
-                    />
-                    <Separator />
-                    <AddressBarContainer>
-                        <AddressText>Address:</AddressText>
-                        <Select
-                            width="92%"
-                            value={address}
-                            options={[
-                                {
-                                    label: address,
-                                    value: address,
-                                },
-                            ]}
-                        />
-                    </AddressBarContainer>
+                    <IconosyAddress >
+                        <ImageIconsWraper>
+                            <ImageBrowserIcons
+                                src={getImagesUrl("/browser-icons.png")}
+                                alt="browser icons"
+                            />
+
+                        </ImageIconsWraper>
+                        <Separator />
+                        <AddressBarContainer>
+                            <AddressText>Address:</AddressText>
+                            <Select
+                                width="90%"
+                                value={address}
+                                options={[
+                                    {
+                                        label: address,
+                                        value: address,
+                                    },
+                                ]}
+                            />
+                        </AddressBarContainer>
+                    </IconosyAddress>
+                    <Win95LogoContainer>
+                        <Win95Logo src={getImagesUrl("/win95-logo.png")} alt="win95 logo" />
+                    </Win95LogoContainer>
                 </AppBarContainer>
-                <Win95LogoContainer>
-                    <Win95Logo src={getImagesUrl("/win95-logo.png")} alt="win95 logo" />
-                </Win95LogoContainer>
             </AppBar>
             <WindowContent>{children}</WindowContent>
         </Container>
@@ -99,7 +103,13 @@ const AppBar = styled.div`
 const AppBarContainer = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
+  gap: 5px;
+  justify-content: space-between;
+`;
+
+const ImageIconsWraper = styled.div`
+    display: flex;
+    
 `;
 
 const AddressBarContainer = styled.div`
@@ -107,6 +117,19 @@ const AddressBarContainer = styled.div`
   width: 100%;
   align-items: center;
   padding: 8px 4px;
+  overflow: hidden;
+
+ @media(max-width: 450px) {
+    width: 293px;
+    
+  }  
+  
+`;
+
+const IconosyAddress = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 `;
 
 const AddressText = styled.div`
@@ -118,6 +141,13 @@ const ImageBrowserIcons = styled.img`
   width: 678px;
   height: 44px;
   padding: 8px 16px;
+  
+
+  @media(max-width: 450px) {
+    width: 278px;
+    object-fit: cover;
+    padding: 8px 8px;
+  } 
 `;
 
 const Win95LogoContainer = styled.div`
@@ -128,6 +158,11 @@ const Win95LogoContainer = styled.div`
   border-left-color: #707070;
   border-right-color: #D9D9D9;
   border-bottom-color: #D9D9D9;
+
+   @media(max-width: 450px) {
+
+  height: 110px;
+  }
 `;
 
 const Win95Logo = styled.img`
@@ -138,4 +173,9 @@ const Win95Logo = styled.img`
   border-left-color: black;
   border-right-color: white;
   border-bottom-color: white;
+
+  @media(max-width: 450px) {
+   width: 105px;
+  height: 105px;
+  }
 `;
