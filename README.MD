@@ -1,7 +1,7 @@
 # win95-nico
 
 ## Link
-https://https://nicosidev.netlify.app
+https://nicosidev.netlify.app
 
 ## About
 Página portafolio Desarrollador Web Nicolás Sicard
