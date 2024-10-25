@@ -200,9 +200,9 @@ const menuItems = [
     href: "",
   },
   {
-    icon: getImagesUrl("/book.png"),
+    icon: getImagesUrl("/instagram-logo-pixelicious.png"),
     label: "Instagram",
-    href: "/instagram-logo-pixelicious.png",
+    href: "https://www.instagram.com/nicosi89",
   },
   {
     icon: getImagesUrl("/github-pixelated.png"),

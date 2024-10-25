@@ -91,6 +91,12 @@ const Container = styled(Window)`
 const WindowContent = styled.div`
   height: calc(100dvh - 250px);
   overflow: auto;
+
+  @media(max-width: 450px) {
+    ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */    
+  }  
+
 `;
 
 const AppBar = styled.div`
