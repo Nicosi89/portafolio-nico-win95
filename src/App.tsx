@@ -54,8 +54,7 @@ import { PelisAppPageRankingPelis } from "./routes/pelis-app/peliculas/ranking";
 import { AboutWindow } from "./components/about-window";
 import { PaginaWebPageHome } from "./routes/pagina-web";
 import { AboutWindowHome } from "./components/contact-window";
-import { About } from "./components/pagina-web/About";
-import { PaginaTrabajo } from "./routes/pagina-web/trabajos/TrabajoPage";
+
 dayjs.extend(durationPlugin);
 
 const App = () => {
