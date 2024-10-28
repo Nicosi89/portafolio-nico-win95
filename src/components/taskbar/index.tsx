@@ -220,7 +220,7 @@ const pathnameToIndicatorMap: Record<
 > = {
   "pagina-web": {
     icon: getImagesUrl("/computer_2_cool-4.png"),
-    label: "Pagina Web Portafolio",
+    label: "Portafolio Nico Sicard",
   },
   "app": {
     icon: getImagesUrl("/movie_maker-3.png"),

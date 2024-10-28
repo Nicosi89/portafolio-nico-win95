@@ -89,7 +89,7 @@ const Container = styled(Window)`
 `;
 
 const WindowContent = styled.div`
-  height: calc(100dvh - 250px);
+  /* height: calc(100dvh - 250px); */
   overflow: auto;
 
   @media(max-width: 450px) {
@@ -102,7 +102,7 @@ const WindowContent = styled.div`
 const AppBar = styled.div`
   display: flex;
   width: 100%;
-  height: 120px;
+  /* height: 120px; */
   justify-content: space-between;
 `;
 
@@ -150,9 +150,7 @@ const ImageBrowserIcons = styled.img`
   
 
   @media(max-width: 450px) {
-    width: 278px;
-    object-fit: cover;
-    padding: 8px 8px;
+    display: none;
   } 
 `;
 
@@ -167,7 +165,9 @@ const Win95LogoContainer = styled.div`
 
    @media(max-width: 450px) {
 
-  height: 110px;
+  height: 50px;
+    width: 50px;
+
   }
 `;
 
@@ -181,7 +181,8 @@ const Win95Logo = styled.img`
   border-bottom-color: white;
 
   @media(max-width: 450px) {
-   width: 105px;
-  height: 105px;
+
+  height: 50px;
+  width: 50px;
   }
 `;

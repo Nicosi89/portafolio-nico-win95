@@ -26,7 +26,7 @@ export const PaginaWebPageHome = ({ withBrowser = true }: Props) => {
 
   return (
     <Wrapper
-      title="Página Portafolio Dev Nicolás Sicard"
+      title="Portafolio Frontend Nico Sicard"
       onClose={() => navigate("/")}
       address="http://www.nicosicarddev.com/index.html"
     >
