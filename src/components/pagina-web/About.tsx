@@ -22,7 +22,7 @@ export const About = () => {
 
       <ImageWrapper>
         <Imagen
-          src="/images/linkedIn3.jpg"
+          src="/images/nico-2024.jpg"
           alt="product detail"
 
 
